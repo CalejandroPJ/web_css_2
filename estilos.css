@@ -1,0 +1,122 @@
+:root {
+  --violet-primary: #9F79F2;
+  --violet-dark:   #8263F2;
+  --violet-accent: #999DF2;
+  --neutral-bg:   #F2F2F2;
+  --text-color:   #333;
+}
+
+@font-face {
+  font-family: 'Swiss721BlackExt';
+  src:
+    local('Swiss 721 Black Extended BT'),  /* Nombre oficial */
+    local('Swiss721BT-BlackExtended');      /* Nombre PostScript alternativo */
+  font-weight: 900;   /* Ajusta según tu variante si usas otra intensidad */
+  font-style: normal;
+}
+
+body {
+  font-family: 'Swiss721BlackExt', sans-serif;
+  background: var(--neutral-bg);
+  color: var(--text-color);
+  line-height: 1.4;
+  padding: 1rem;
+}
+
+.tienda_layout{
+    display: grid;
+  grid-template-areas:
+    "header  header"
+    "filtros productos"
+    "footer  footer";
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: auto 1fr auto;
+  gap: 1rem;
+  min-height: 100vh;
+}
+
+.tienda_header{
+    grid-area: header;
+  background: var(--violet-dark);
+  color: #fff;
+  padding: 1.5rem;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.filtros{
+    grid-area: filtros;
+  background: #fff;
+  border: 2px solid var(--violet-accent);
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.productos_grid{
+    grid-area: productos;
+  display: grid;
+  gap: 1rem;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: auto;
+}
+
+.producto_destacado{
+    grid-column: span 2;
+  grid-row: span 2;
+  border-color: var(--violet-primary);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  background: #5D5F8C;
+  color: #fff;
+}
+
+.producto{
+    background: #fff;
+  border: 2px solid var(--violet-accent);
+  border-radius: 6px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.producto:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.producto button {
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: var(--violet-primary);
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.producto button:hover {
+  background: var(--violet-dark);
+}
+
+.mas_productos{
+    font-family: 'Swiss721BlackExt', sans-serif;
+    border-color: var(--violet-primary);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  background: #543d61;
+  color: #fff;
+}
+
+.mas_productos:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.tienda_footer{
+    grid-area: footer;
+  background: var(--violet-dark);
+  color: white;
+  padding: 1rem;
+  border-radius: 4px;
+  text-align: center;
+}
